@@ -12,19 +12,19 @@ const ContactList: React.FC = () => {
       PageSize: 0,
       TotalCount: 0,
     }).then((response) => {
-      console.log(response.data);
+      console.log(response.data.Records);
       setContacts(response.data.Records);
     });
   }, []);
 
   return (
     <div>
-      {contacts.map((contact) => (
-        <div key={contact.id}>
-          <h2>
-            {contact.FirstName} {contact.LastName}
-          </h2>
-        </div>
+    {contacts.map((contact, index) => (
+      <div key={contact.id}>
+        <h2>
+          {index + 1}. {contact.FirstName} {contact.LastName}
+        </h2>
+      </div>
       ))}
     </div>
   );

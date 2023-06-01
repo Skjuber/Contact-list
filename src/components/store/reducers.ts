@@ -5,18 +5,17 @@ const initialState: Contact[] = [];
 
 const contactsReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'SET_CONTACTS':
+    case "SET_CONTACTS":
       return action.payload;
-    case 'TOGGLE_BOOKMARK':
-      return state.map(contact => 
-        contact.id === action.payload 
-        ? { ...contact, isBookmarked: !contact.isBookmarked } 
-        : contact
+    case "TOGGLE_BOOKMARK":
+      return state.map((contact) =>
+        contact.id === action.payload
+          ? { ...contact, isBookmarked: !contact.isBookmarked }
+          : contact
       );
     default:
       return state;
   }
 };
-  
-  
-  export default contactsReducer;
+
+export default contactsReducer;

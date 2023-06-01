@@ -19,12 +19,14 @@ const ContactList: React.FC = () => {
 
   return (
     <div>
-    {contacts.map((contact, index) => (
-      <div key={contact.id}>
-        <h2>
-          {index + 1}. {contact.FirstName ? contact.FirstName : "N/A"} {contact.LastName ? contact.LastName : "N/A"}
-        </h2>
-      </div>
+      {contacts.map((contact, index) => (
+        <div key={contact.id}>
+          <h2>
+            {index + 1}. {contact.FirstName ? contact.FirstName : "N/A"} {contact.LastName ? contact.LastName : "N/A"}
+          </h2>
+          <p>Email: {contact.Email ? contact.Email : "N/A"}</p>
+          <p>Birthday: {contact.BirthDate ? contact.BirthDate : "N/A"}</p>
+        </div>
       ))}
     </div>
   );

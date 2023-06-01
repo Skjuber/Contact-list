@@ -19,7 +19,7 @@ const ContactList: React.FC = () => {
   return (
     <div>
       {contacts.map((contact, index) => (
-        <div key={contact.id}>
+        <div key={`${contact.id}-${index}`}>
           <h2>
             {index + 1}. {contact.FirstName ? contact.FirstName : "N/A"} {contact.LastName ? contact.LastName : "N/A"}
           </h2>

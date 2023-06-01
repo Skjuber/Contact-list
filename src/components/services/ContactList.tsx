@@ -1,13 +1,18 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../store/store"; // import useAppDispatch here
-import { setContacts, toggleBookmark } from "../store/actions";
+import { useAppDispatch } from "../store/store";
+import {
+  setContacts,
+  toggleBookmark,
+  setAllBookmarks,
+  clearAllBookmarks,
+} from "../store/actions";
 import API from "./api";
 import Contact from "../utils/interfaces/Contact";
 import { RootState } from "../store/rootReducer";
 
 const ContactList: React.FC = () => {
-  const dispatch = useAppDispatch(); // use useAppDispatch instead of useDispatch
+  const dispatch = useAppDispatch();
   const contacts = useSelector((state: RootState) => state.contacts);
 
   useEffect(() => {
@@ -30,8 +35,19 @@ const ContactList: React.FC = () => {
     dispatch(toggleBookmark(Id));
   };
 
+  const handleBookmarkAll = () => {
+    dispatch(setAllBookmarks());
+  };
+
+  const handleUnbookmarkAll = () => {
+    dispatch(clearAllBookmarks());
+  };
+
   return (
     <div>
+      <button onClick={handleBookmarkAll}>Bookmark All</button>
+      <button onClick={handleUnbookmarkAll}>Unbookmark All</button>
+
       {contacts &&
         contacts.map((contact: Contact, index: number) => (
           <div key={`${contact.Id}-${index}`}>

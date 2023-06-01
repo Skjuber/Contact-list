@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Contact from "../utils/interfaces/Contact";
 import { RootState } from "../store/rootReducer";
+import { Link } from 'react-router-dom';
 
 const BookmarkedContacts: React.FC = () => {
   const contacts = useSelector((state: RootState) => state.contacts);
@@ -11,6 +12,7 @@ const BookmarkedContacts: React.FC = () => {
 
   return (
     <div>
+        <Link to="/">Return Home</Link>
       <h2>Bookmarked Contacts</h2>
       {bookmarkedContacts.length > 0 ? (
         bookmarkedContacts.map((contact: Contact, index: number) => (

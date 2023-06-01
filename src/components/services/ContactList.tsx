@@ -16,7 +16,6 @@ const ContactList: React.FC = () => {
       setContacts(response.data.Records);
     });
   }, []);
-
   return (
     <div>
       {contacts.map((contact, index) => (
@@ -26,6 +25,7 @@ const ContactList: React.FC = () => {
           </h2>
           <p>Email: {contact.Email ? contact.Email : "N/A"}</p>
           <p>Birthday: {contact.BirthDate ? contact.BirthDate : "N/A"}</p>
+          <p>Account ID: {contact.Account ? contact.Account.Id : "N/A"}</p>
         </div>
       ))}
     </div>

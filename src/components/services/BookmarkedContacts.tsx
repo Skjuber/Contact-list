@@ -21,6 +21,7 @@ const BookmarkedContacts: React.FC = () => {
   return (
     <div>
       <h2>Bookmarked Contacts</h2>
+      <Link to="/">Return Home</Link>
       {bookmarkedContacts.length > 0 ? (
         bookmarkedContacts.map((contact: Contact, index: number) => (
           <div key={contact.Id}>
@@ -39,7 +40,6 @@ const BookmarkedContacts: React.FC = () => {
       ) : (
         <p>No bookmarked contacts yet.</p>
       )}
-      <Link to="/">Return Home</Link>
     </div>
   );
 };

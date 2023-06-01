@@ -3,11 +3,11 @@ import Contact from "../utils/interfaces/Contact";
 
 const initialState: Contact[] = [];
 
-const contactsReducer = (state = initialState, action: Action) => {
+const contactsReducer = (state: Contact[] = initialState, action: Action) => {
   switch (action.type) {
-    case "SET_CONTACTS":
+    case 'SET_CONTACTS':
       return action.payload;
-    case "TOGGLE_BOOKMARK":
+    case 'TOGGLE_BOOKMARK':
       return state.map((contact) =>
         contact.Id === action.payload
           ? { ...contact, isBookmarked: !contact.isBookmarked }

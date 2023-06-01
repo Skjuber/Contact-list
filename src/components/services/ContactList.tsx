@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../store/store"; // import useAppDispatch here
 import { setContacts, toggleBookmark } from "../store/actions";
 import API from "./api";
 import Contact from "../utils/interfaces/Contact";
 import { RootState } from "../store/rootReducer";
 
 const ContactList: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch(); // use useAppDispatch instead of useDispatch
   const contacts = useSelector((state: RootState) => state.contacts);
 
   useEffect(() => {

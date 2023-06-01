@@ -1,7 +1,6 @@
 import Contact from "../utils/interfaces/Contact";
 
 export const setContacts = (contacts: Contact[]) => {
-  // When contacts are fetched, also get bookmarks from local storage
   const bookmarkIds = JSON.parse(localStorage.getItem("bookmarks") || "[]");
   const contactsWithBookmarks = contacts.map((contact) => ({
     ...contact,
@@ -18,7 +17,6 @@ export const toggleBookmark = (contactId: string) => {
   return (dispatch: any, getState: any) => {
     dispatch({ type: "TOGGLE_BOOKMARK", payload: contactId });
 
-    // After state has been updated, save bookmarks to local storage
     const state = getState();
     const bookmarkedContactIds = state.contacts
       .filter((contact: Contact) => contact.isBookmarked)
@@ -31,7 +29,6 @@ export const toggleAllBookmarks = () => {
   return (dispatch: any, getState: any) => {
     dispatch({ type: "TOGGLE_ALL_BOOKMARKS" });
 
-    // After state has been updated, save bookmarks to local storage
     const state = getState();
     const bookmarkedContactIds = state.contacts
       .filter((contact: Contact) => contact.isBookmarked)
@@ -40,10 +37,21 @@ export const toggleAllBookmarks = () => {
   };
 };
 
-export const setAllBookmarks = () => ({
-  type: "SET_ALL_BOOKMARKS",
-});
+export const setAllBookmarks = () => {
+  return (dispatch: any, getState: any) => {
+    dispatch({ type: "SET_ALL_BOOKMARKS" });
 
-export const clearAllBookmarks = () => ({
-  type: "CLEAR_ALL_BOOKMARKS",
-});
+    const state = getState();
+    const contacts = state.contacts;
+    const bookmarkedContactIds = contacts.map((contact: Contact) => contact.Id);
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarkedContactIds));
+  };
+};
+
+export const clearAllBookmarks = () => {
+  return (dispatch: any, getState: any) => {
+    dispatch({ type: "CLEAR_ALL_BOOKMARKS" });
+
+    localStorage.setItem("bookmarks", JSON.stringify([]));
+  };
+};

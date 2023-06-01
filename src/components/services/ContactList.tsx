@@ -33,7 +33,7 @@ const ContactList: React.FC = () => {
     <div>
       {contacts &&
         contacts.map((contact: Contact, index: number) => (
-          <div key={`${contact.id}-${index}`}>
+          <div key={`${contact.Id}-${index}`}>
             <h2>
               {index + 1}. {contact.FirstName ? contact.FirstName : "N/A"}{" "}
               {contact.LastName ? contact.LastName : "N/A"}
@@ -44,7 +44,7 @@ const ContactList: React.FC = () => {
             <input
               type="checkbox"
               checked={contact.isBookmarked}
-              onChange={() => handleBookmarkToggle(contact.id)}
+              onChange={() => handleBookmarkToggle(contact.Id)}
             />{" "}
             Bookmark
           </div>

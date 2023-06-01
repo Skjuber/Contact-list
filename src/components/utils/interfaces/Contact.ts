@@ -4,7 +4,7 @@ interface Account {
 }
 
 export default interface Contact {
-  id: string;
+  Id: string;
   FirstName: string;
   LastName: string;
   BirthDate: string;

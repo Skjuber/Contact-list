@@ -9,7 +9,7 @@ const contactsReducer = (state = initialState, action: Action) => {
       return action.payload;
     case "TOGGLE_BOOKMARK":
       return state.map((contact) =>
-        contact.id === action.payload
+        contact.Id === action.payload
           ? { ...contact, isBookmarked: !contact.isBookmarked }
           : contact
       );

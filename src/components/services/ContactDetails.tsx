@@ -19,7 +19,6 @@ const ContactDetails: React.FC = () => {
       <h2>
         {contact.FirstName} {contact.LastName}
       </h2>
-      {/* add more details as required */}
     </div>
   ) : null;
 };

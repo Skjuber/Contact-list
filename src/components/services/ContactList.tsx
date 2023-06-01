@@ -22,7 +22,7 @@ const ContactList: React.FC = () => {
     {contacts.map((contact, index) => (
       <div key={contact.id}>
         <h2>
-          {index + 1}. {contact.FirstName} {contact.LastName}
+          {index + 1}. {contact.FirstName ? contact.FirstName : "N/A"} {contact.LastName ? contact.LastName : "N/A"}
         </h2>
       </div>
       ))}

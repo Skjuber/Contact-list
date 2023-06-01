@@ -1,20 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../store/store"; // add this import
-import { toggleBookmark } from "../store/actions"; // add this import
+import { useAppDispatch } from "../store/store";
+import { toggleBookmark } from "../store/actions";
 import Contact from "../utils/interfaces/Contact";
 import { RootState } from "../store/rootReducer";
 import { Link } from "react-router-dom";
 
 const BookmarkedContacts: React.FC = () => {
-  const dispatch = useAppDispatch(); // add this line
+  const dispatch = useAppDispatch();
   const contacts = useSelector((state: RootState) => state.contacts);
   const bookmarkedContacts = contacts.filter(
     (contact: Contact) => contact.isBookmarked
   );
 
   const handleBookmarkToggle = (Id: string) => {
-    // add this function
     dispatch(toggleBookmark(Id));
   };
 
@@ -32,7 +31,7 @@ const BookmarkedContacts: React.FC = () => {
               type="checkbox"
               checked={contact.isBookmarked}
               onChange={() => handleBookmarkToggle(contact.Id)}
-            />{" "}
+            />
             Remove Bookmark
           </div>
         ))

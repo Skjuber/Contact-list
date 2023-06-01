@@ -1,13 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import store from "./store/store";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import ContactList from "./services/ContactList";
 import ContactDetails from "./services/ContactDetails";
 import BookmarkedContacts from "./services/BookmarkedContacts";

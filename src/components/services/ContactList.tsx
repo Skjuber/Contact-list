@@ -20,6 +20,7 @@ const ContactList: React.FC = () => {
       TotalCount: 0,
     }).then((response) => {
       console.log(response.data);
+      console.log('response.data');
     dispatch(setContacts(response.data.Records)); // Dispatching action to set contacts
     }).catch((error) => {
       console.error('There was an error!', error);

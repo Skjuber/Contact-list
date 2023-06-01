@@ -10,4 +10,5 @@ export default interface Contact {
   BirthDate: string;
   Email: string;
   Account: Account | null;
+  isBookmarked: boolean;
 }

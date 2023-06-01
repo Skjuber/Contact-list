@@ -1,15 +1,22 @@
 import { Action } from "../utils/interfaces/Action";
+import Contact from "../utils/interfaces/Contact";
 
-const contactsReducer = (state = [], action: Action) => {
-    console.log('state before:', state);
+const initialState: Contact[] = [];
 
-    switch (action.type) {
-      case 'SET_CONTACTS':
-   
-        return action.payload;
-      default:
-        return state;
-    }
-  };
+const contactsReducer = (state = initialState, action: Action) => {
+  switch (action.type) {
+    case 'SET_CONTACTS':
+      return action.payload;
+    case 'TOGGLE_BOOKMARK':
+      return state.map(contact => 
+        contact.id === action.payload 
+        ? { ...contact, isBookmarked: !contact.isBookmarked } 
+        : contact
+      );
+    default:
+      return state;
+  }
+};
+  
   
   export default contactsReducer;

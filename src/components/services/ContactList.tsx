@@ -12,7 +12,8 @@ const ContactList: React.FC = () => {
       PageSize: 0,
       TotalCount: 0,
     }).then((response) => {
-      setContacts(response.data);
+      console.log(response.data);
+      setContacts(response.data.Records);
     });
   }, []);
 

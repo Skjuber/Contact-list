@@ -1,10 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { setContacts } from '../store/actions';
 import API from "./api";
 import Contact from "../utils/interfaces/Contact";
+import { RootState } from '../store/rootReducer';
+
+
 
 const ContactList: React.FC = () => {
-  const [contacts, setContacts] = useState<Contact[]>([]);
+  const dispatch = useDispatch();
+  const contacts = useSelector((state: RootState) => state.contacts);
 
+  console.log(contacts)
   useEffect(() => {
     API.post("/Contact/List", {
       PagingCookie: "",
@@ -12,13 +19,17 @@ const ContactList: React.FC = () => {
       PageSize: 0,
       TotalCount: 0,
     }).then((response) => {
-      console.log(response.data.Records);
-      setContacts(response.data.Records);
+      console.log(response.data);
+    dispatch(setContacts(response.data.Records)); // Dispatching action to set contacts
+    }).catch((error) => {
+      console.error('There was an error!', error);
     });
-  }, []);
+  }, [dispatch]);
+
   return (
     <div>
-      {contacts.map((contact, index) => (
+    
+      {contacts && contacts.map((contact: Contact, index: number) =>(
         <div key={`${contact.id}-${index}`}>
           <h2>
             {index + 1}. {contact.FirstName ? contact.FirstName : "N/A"} {contact.LastName ? contact.LastName : "N/A"}

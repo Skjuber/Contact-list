@@ -59,8 +59,31 @@
 
         select,
         input[type="text"] {
-          padding: 5px;
+          padding: 10px 15px;
           font-size: 1em;
+          border-radius: 25px;
+          border: #f72585 solid;
+          outline: none;
+          background: linear-gradient(
+            145deg,
+            #f50057,
+            #f72585,
+            #c945c7,
+            #9e58c9,
+            #7047b9,
+            #3f2b7d
+          );
+          color: #000;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.5);
+          transition: box-shadow 0.3s ease;
+        }
+
+        select:focus,
+        input[type="text"]:focus {
+          box-shadow: 0px 0px 20px rgba(0, 188, 212, 0.75);
         }
       }
     }
@@ -97,13 +120,5 @@
     &:hover {
       background-color: #325cbf;
     }
-  }
-
-  /* Select and Input Styles */
-
-  select,
-  input[type="text"] {
-    padding: 5px;
-    font-size: 1em;
   }
 }

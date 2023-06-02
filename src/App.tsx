@@ -9,7 +9,7 @@ const App: React.FC = () => {
     };
 
     const handleWindowFocus = () => {
-      document.title = "inskysolutions";
+      document.title = "ContactsHub";
     };
 
     window.addEventListener("blur", handleWindowBlur);

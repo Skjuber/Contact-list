@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../store/store";
 import {
@@ -15,6 +15,8 @@ import {
   sortByLastName,
   sortByBirthDate,
 } from "../utils/SortingFunctions";
+import { debounce } from "lodash";
+import useDebounce from "../utils/useDebounce";
 
 const ContactList: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -22,6 +24,7 @@ const ContactList: React.FC = () => {
 
   const [sortOption, setSortOption] = useState("firstName");
   const [searchTerm, setSearchTerm] = useState("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 200);
 
   useEffect(() => {
     API.post("/Contact/List", {
@@ -53,18 +56,20 @@ const ContactList: React.FC = () => {
 
   let sortedContacts = [...contacts];
   if (sortOption === "firstName") {
-    sortedContacts = [...contacts].sort(sortByFirstName);
+    sortedContacts.sort(sortByFirstName);
   } else if (sortOption === "lastName") {
-    sortedContacts = [...contacts].sort(sortByLastName);
+    sortedContacts.sort(sortByLastName);
   } else if (sortOption === "birthDate") {
-    sortedContacts = [...contacts].sort(sortByBirthDate);
+    sortedContacts.sort(sortByBirthDate);
   }
 
   sortedContacts = sortedContacts.filter((contact) =>
     `${contact.FirstName} ${contact.LastName}`
       .toLowerCase()
-      .includes(searchTerm.toLowerCase())
+      .includes(debouncedSearchTerm.toLowerCase())
   );
+
+  const debouncedHandleSearch = useCallback(debounce(setSearchTerm, 500), []);
 
   return (
     <div>
@@ -81,8 +86,7 @@ const ContactList: React.FC = () => {
       <input
         type="text"
         placeholder="Search contacts..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => debouncedHandleSearch(e.target.value)}
       />
       {sortedContacts &&
         sortedContacts.map((contact: Contact, index: number) => (

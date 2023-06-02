@@ -110,12 +110,11 @@ const ContactList: React.FC = () => {
             <p>Email: {contact.Email ? contact.Email : "N/A"}</p>
             <p>Birthday: {contact.BirthDate ? contact.BirthDate : "N/A"}</p>
             <p>Account ID: {contact.Account ? contact.Account.Id : "N/A"}</p>
-            <input
-              type="checkbox"
-              checked={contact.isBookmarked}
-              onChange={() => handleBookmarkToggle(contact.Id)}
-            />{" "}
-            Bookmark
+            {contact.isBookmarked ? (
+              <BsBookmarkStarFill className="bookmark-icon" onClick={() => handleBookmarkToggle(contact.Id)} />
+            ) : (
+              <BsBookmarkStar className="bookmark-icon" onClick={() => handleBookmarkToggle(contact.Id)} />
+            )}
           </div>
         ))}
     </div>

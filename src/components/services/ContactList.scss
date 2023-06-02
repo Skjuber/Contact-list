@@ -32,71 +32,78 @@
     }
 
     .list-and-controls {
-      display: flex;
-      justify-content: flex-start;
+      display: grid;
+      grid-template-columns: auto 1fr;
       align-items: center;
+
       .list-header {
+        position: relative;
         margin-right: 20px;
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          height: 1px;
+          width: 100vw;
+          background: black;
+        }
       }
 
       .controls {
-        margin-left: 20px;
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 10px;
-      }
 
-      select,
-      input[type="text"] {
-        padding: 5px;
-        font-size: 1em;
+        select,
+        input[type="text"] {
+          padding: 5px;
+          font-size: 1em;
+        }
       }
     }
   }
 
-  .list-header {
+  .contact {
     border-bottom: 1px solid black;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
-}
 
-.contact {
-  border-bottom: 1px solid black;
+  /* Button Styles */
 
-  h2 {
-    margin-top: 0;
+  button {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #4169e1;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #325cbf;
+    }
   }
 
-  p {
-    margin: 5px 0;
+  /* Select and Input Styles */
+
+  select,
+  input[type="text"] {
+    padding: 5px;
+    font-size: 1em;
   }
-
-  &:last-child {
-    border-bottom: none;
-  }
-}
-
-/* Button Styles */
-
-button {
-  padding: 10px 15px;
-  font-size: 1em;
-  border: none;
-  border-radius: 5px;
-  background-color: #4169e1;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #325cbf;
-  }
-}
-
-/* Select and Input Styles */
-
-select,
-input[type="text"] {
-  padding: 5px;
-  font-size: 1em;
 }

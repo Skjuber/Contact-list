@@ -18,6 +18,7 @@ import {
 import { debounce } from "lodash";
 import useDebounce from "../utils/useDebounce";
 import "./ContactList.scss";
+import { BsBookmarkStarFill, BsBookmarkStar } from 'react-icons/bs'
 
 const ContactList: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -77,8 +78,8 @@ const ContactList: React.FC = () => {
     <div className="contact-list">
       <div className="header-section">
         <div className="bookmark-controls">
-          <button onClick={handleBookmarkAll}>Bookmark All</button>
-          <button onClick={handleUnbookmarkAll}>Unbookmark All</button>
+          <button onClick={handleBookmarkAll}><BsBookmarkStarFill /> Bookmark All </button>
+          <button onClick={handleUnbookmarkAll}><BsBookmarkStar /> Unbookmark All</button>
         </div>
         <div className="list-and-controls">
           <h1 className="list-header">Antini kontakti</h1>

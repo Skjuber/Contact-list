@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ContactList from "./services/ContactList";
 import ContactDetails from "./services/ContactDetails";
 import BookmarkedContacts from "./services/BookmarkedContacts";
+import About from "./About";
 import Dashboard from "./Dashboard"; // add the path to your Dashboard component
 import "./MainRouter.scss";
 
@@ -13,22 +14,30 @@ const MainRouter: React.FC = () => {
     <Provider store={store}>
       <Router>
         <Routes>
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             element={
               <Dashboard>
                 <Home />
               </Dashboard>
-            } 
+            }
           />
           <Route path="/contact/:id" element={<ContactDetails />} />
-          <Route 
-            path="/bookmarked" 
+          <Route
+            path="/bookmarked"
             element={
               <Dashboard>
                 <Bookmarked />
               </Dashboard>
-            } 
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Dashboard>
+                <About />
+              </Dashboard>
+            }
           />
         </Routes>
       </Router>

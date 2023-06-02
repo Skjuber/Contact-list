@@ -1,4 +1,21 @@
-.BookmarkedContacts{
+@import "ContactList.scss";
 
-    
+.contact-list {
+  .contact {
+    h3 {
+      margin-top: 0;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }

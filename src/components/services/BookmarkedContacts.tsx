@@ -6,13 +6,13 @@ import Contact from "../utils/interfaces/Contact";
 import { RootState } from "../store/rootReducer";
 import { Link } from "react-router-dom";
 import API from "./api";
-import SortingComponent from './SortingComponent';
+import SortingComponent from "./SortingComponent";
 import {
   sortByFirstName,
   sortByLastName,
   sortByBirthDate,
 } from "../utils/SortingFunctions";
-import './BookmarkedContacts.scss';
+import "./BookmarkedContacts.scss";
 
 const BookmarkedContacts: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -56,13 +56,18 @@ const BookmarkedContacts: React.FC = () => {
   };
 
   return (
-    <div className="BookmarkedContacts">
-      <h2>Bookmarked Contacts</h2>
+    <div className="contact-list">
       <Link to="/">Return Home</Link>
-      <SortingComponent onSortChange={handleSortChange} />
+      <div className="header-section">
+        <div className="list-and-controls">
+          <h2 className="list-header">Bookmarked Contacts</h2>
+          <SortingComponent onSortChange={handleSortChange} />
+        </div>
+      </div>
+
       {bookmarkedContacts.length > 0 ? (
         bookmarkedContacts.map((contact: Contact, index: number) => (
-          <div key={contact.Id}>
+          <div className="contact" key={contact.Id}>
             <h3>
               {index + 1}. {contact.FirstName} {contact.LastName}
             </h3>

@@ -12,6 +12,7 @@ import {
   sortByLastName,
   sortByBirthDate,
 } from "../utils/SortingFunctions";
+import './BookmarkedContacts.scss';
 
 const BookmarkedContacts: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -55,7 +56,7 @@ const BookmarkedContacts: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="BookmarkedContacts">
       <h2>Bookmarked Contacts</h2>
       <Link to="/">Return Home</Link>
       <SortingComponent onSortChange={handleSortChange} />

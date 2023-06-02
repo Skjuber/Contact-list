@@ -111,9 +111,9 @@ const ContactList: React.FC = () => {
             <p>Birthday: {contact.BirthDate ? contact.BirthDate : "N/A"}</p>
             <p>Account ID: {contact.Account ? contact.Account.Id : "N/A"}</p>
             {contact.isBookmarked ? (
-              <BsBookmarkStarFill className="bookmark-icon BsBookmarkStarFill" onClick={() => handleBookmarkToggle(contact.Id)} />
+              <BsBookmarkStarFill className="bookmark-icon BsBookmarkStarFill"  title = "Remove from bookmarked list"onClick={() => handleBookmarkToggle(contact.Id)} />
             ) : (
-              <BsBookmarkStar className="bookmark-icon BsBookmarkStar" onClick={() => handleBookmarkToggle(contact.Id)} />
+              <BsBookmarkStar className="bookmark-icon BsBookmarkStar" title = "Add to bookmarked list" onClick={() => handleBookmarkToggle(contact.Id)} />
             )}
           </div>
         ))}

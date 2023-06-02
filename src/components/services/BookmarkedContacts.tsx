@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../store/store";
-import { toggleBookmark } from "../store/actions";
+import { toggleBookmark, setContacts } from "../store/actions";
 import Contact from "../utils/interfaces/Contact";
 import { RootState } from "../store/rootReducer";
 import { Link } from "react-router-dom";
+import API from "./api";
 
 const BookmarkedContacts: React.FC = () => {
   const dispatch = useAppDispatch();
   const contacts = useSelector((state: RootState) => state.contacts);
+
+  useEffect(() => {
+    API.post("/Contact/List", {
+      PagingCookie: "",
+      PageNumber: 0,
+      PageSize: 0,
+      TotalCount: 0,
+    })
+      .then((response) => {
+        dispatch(setContacts(response.data.Records));
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  }, [dispatch]);
 
   const bookmarkedContacts = contacts.filter(
     (contact: Contact) => contact.isBookmarked

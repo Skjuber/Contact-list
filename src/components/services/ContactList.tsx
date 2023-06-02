@@ -17,6 +17,9 @@ import {
 } from "../utils/SortingFunctions";
 import { debounce } from "lodash";
 import useDebounce from "../utils/useDebounce";
+import './ContactList.scss';
+
+
 
 const ContactList: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -73,7 +76,7 @@ const ContactList: React.FC = () => {
   const debouncedHandleSearch = useCallback(debounce(setSearchTerm, 500), []);
 
   return (
-    <div>
+    <div className="contact-list">
       <button onClick={handleBookmarkAll}>Bookmark All</button>
       <button onClick={handleUnbookmarkAll}>Unbookmark All</button>
       <select
@@ -91,7 +94,7 @@ const ContactList: React.FC = () => {
       />
       {sortedContacts &&
         sortedContacts.map((contact: Contact, index: number) => (
-          <div key={`${contact.Id}-${index}`}>
+          <div className="contact" key={`${contact.Id}-${index}`}>
             <h2>
               {index + 1}. {contact.FirstName ? contact.FirstName : "N/A"}{" "}
               {contact.LastName ? contact.LastName : "N/A"}

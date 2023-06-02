@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import ContactList from "./services/ContactList";
 import ContactDetails from "./services/ContactDetails";
 import BookmarkedContacts from "./services/BookmarkedContacts";
+import "./MainRouter.scss";
+
 
 const MainRouter: React.FC = () => {
   return (

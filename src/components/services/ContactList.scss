@@ -1,0 +1,42 @@
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+  
+    button {
+      margin-bottom: 10px;
+    }
+  
+    select, input[type="text"] {
+      margin: 10px 0;
+      padding: 5px;
+      font-size: 1em;
+    }
+  
+    .contact {
+      background-color: #f2f2f2;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border-bottom: 1px solid #e0e0e0;
+  
+      h2 {
+        margin-top: 0;
+        color: #333;
+      }
+  
+      p {
+        margin: 5px 0;
+        color: #666;
+      }
+  
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  

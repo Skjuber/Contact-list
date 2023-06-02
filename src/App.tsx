@@ -5,7 +5,7 @@ import "./App.scss";
 const App: React.FC = () => {
   return (
     <div className="App">
-          <h1 className="Header">Contact-List</h1>
+          <h1 className="Header">Contact Hub</h1>
       <MainRouter />
  
     </div>

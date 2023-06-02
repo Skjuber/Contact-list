@@ -77,6 +77,7 @@ const ContactList: React.FC = () => {
 
   return (
     <div className="contact-list">
+      <div className="controls">
       <button onClick={handleBookmarkAll}>Bookmark All</button>
       <button onClick={handleUnbookmarkAll}>Unbookmark All</button>
       <select
@@ -92,6 +93,8 @@ const ContactList: React.FC = () => {
         placeholder="Search contacts..."
         onChange={(e) => debouncedHandleSearch(e.target.value)}
       />
+      </div>
+      <h1 className="list-header">Contact list</h1>
       {sortedContacts &&
         sortedContacts.map((contact: Contact, index: number) => (
           <div className="contact" key={`${contact.Id}-${index}`}>

@@ -56,7 +56,7 @@ const BookmarkedContacts: React.FC = () => {
   };
 
   return (
-    <div className="contact-list">
+    <div className="bookmarked-contact-list">
       <Link to="/">Return Home</Link>
       <div className="header-section">
         <div className="list-and-controls">

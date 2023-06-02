@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../store/store";
 import {
@@ -10,10 +10,17 @@ import {
 import API from "./api";
 import Contact from "../utils/interfaces/Contact";
 import { RootState } from "../store/rootReducer";
+import {
+  sortByFirstName,
+  sortByLastName,
+  sortByBirthDate,
+} from "../utils/SortingFunctions";
 
 const ContactList: React.FC = () => {
   const dispatch = useAppDispatch();
   const contacts = useSelector((state: RootState) => state.contacts);
+
+  const [sortOption, setSortOption] = useState("firstName");
 
   useEffect(() => {
     API.post("/Contact/List", {
@@ -43,13 +50,29 @@ const ContactList: React.FC = () => {
     dispatch(clearAllBookmarks());
   };
 
+  let sortedContacts;
+  if (sortOption === "firstName") {
+    sortedContacts = [...contacts].sort(sortByFirstName);
+  } else if (sortOption === "lastName") {
+    sortedContacts = [...contacts].sort(sortByLastName);
+  } else if (sortOption === "birthDate") {
+    sortedContacts = [...contacts].sort(sortByBirthDate);
+  }
+
   return (
     <div>
       <button onClick={handleBookmarkAll}>Bookmark All</button>
       <button onClick={handleUnbookmarkAll}>Unbookmark All</button>
-
-      {contacts &&
-        contacts.map((contact: Contact, index: number) => (
+      <select
+        value={sortOption}
+        onChange={(e) => setSortOption(e.target.value)}
+      >
+        <option value="firstName">Sort by First Name</option>
+        <option value="lastName">Sort by Last Name</option>
+        <option value="birthDate">Sort by Birth Date</option>
+      </select>
+      {sortedContacts &&
+        sortedContacts.map((contact: Contact, index: number) => (
           <div key={`${contact.Id}-${index}`}>
             <h2>
               {index + 1}. {contact.FirstName ? contact.FirstName : "N/A"}{" "}

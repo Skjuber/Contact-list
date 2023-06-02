@@ -1,103 +1,102 @@
 .contact-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .header-section {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-  
-    .header-section {
+    margin-bottom: 20px;
+
+    .bookmark-controls {
       display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      margin-bottom: 20px;
-  
-      .bookmark-controls {
-        display: flex;
-        justify-content: flex-start;
-        gap: 10px;
-        margin-bottom: 10px;
-  
-        button {
-          padding: 10px 15px;
-          font-size: 1em;
-          border: none;
-          border-radius: 5px;
-          background-color: #4169e1;
-          color: white;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-  
-          &:hover {
-            background-color: #325cbf;
-          }
+      justify-content: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+
+      button {
+        padding: 10px 15px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: #4169e1;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #325cbf;
         }
       }
-  
-      .list-and-controls {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-  
-        .list-header {
-          margin-right: 20px;
-        }
-  
-        .controls {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 10px;
-  
-          select,
-          input[type="text"] {
-            padding: 5px;
-            font-size: 1em;
-          }
-        }
-      }
-  
+    }
+
+    .list-and-controls {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
       .list-header {
-        border-bottom: 1px solid black;
+        margin-right: 20px;
       }
-    }
-  
-    .contact {
-      border-bottom: 1px solid black;
-  
-      h2 {
-        margin-top: 0;
+
+      .controls {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
       }
-  
-      p {
-        margin: 5px 0;
-      }
-  
-      &:last-child {
-        border-bottom: none;
+
+      select,
+      input[type="text"] {
+        padding: 5px;
+        font-size: 1em;
       }
     }
   }
-  
-  /* Button Styles */
-  
-  button {
-    padding: 10px 15px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    background-color: #4169e1;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: #325cbf;
-    }
+
+  .list-header {
+    border-bottom: 1px solid black;
   }
-  
-  /* Select and Input Styles */
-  
-  select,
-  input[type="text"] {
-    padding: 5px;
-    font-size: 1em;
+}
+
+.contact {
+  border-bottom: 1px solid black;
+
+  h2 {
+    margin-top: 0;
   }
-  
+
+  p {
+    margin: 5px 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Button Styles */
+
+button {
+  padding: 10px 15px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #4169e1;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #325cbf;
+  }
+}
+
+/* Select and Input Styles */
+
+select,
+input[type="text"] {
+  padding: 5px;
+  font-size: 1em;
+}

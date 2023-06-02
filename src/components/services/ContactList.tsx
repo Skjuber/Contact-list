@@ -21,6 +21,7 @@ const ContactList: React.FC = () => {
   const contacts = useSelector((state: RootState) => state.contacts);
 
   const [sortOption, setSortOption] = useState("firstName");
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     API.post("/Contact/List", {
@@ -50,7 +51,7 @@ const ContactList: React.FC = () => {
     dispatch(clearAllBookmarks());
   };
 
-  let sortedContacts;
+  let sortedContacts = [...contacts];
   if (sortOption === "firstName") {
     sortedContacts = [...contacts].sort(sortByFirstName);
   } else if (sortOption === "lastName") {
@@ -58,6 +59,12 @@ const ContactList: React.FC = () => {
   } else if (sortOption === "birthDate") {
     sortedContacts = [...contacts].sort(sortByBirthDate);
   }
+
+  sortedContacts = sortedContacts.filter((contact) =>
+    `${contact.FirstName} ${contact.LastName}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
@@ -71,6 +78,12 @@ const ContactList: React.FC = () => {
         <option value="lastName">Sort by Last Name</option>
         <option value="birthDate">Sort by Birth Date</option>
       </select>
+      <input
+        type="text"
+        placeholder="Search contacts..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       {sortedContacts &&
         sortedContacts.map((contact: Contact, index: number) => (
           <div key={`${contact.Id}-${index}`}>

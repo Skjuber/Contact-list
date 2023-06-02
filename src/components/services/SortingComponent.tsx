@@ -11,9 +11,9 @@ const SortingComponent: React.FC<Props> = ({ onSortChange }) => {
 
   return (
     <select onChange={handleSortChange}>
-      <option value="firstName">First Name</option>
-      <option value="lastName">Last Name</option>
-      <option value="birthDate">Birth Date</option>
+      <option value="firstName">Sort by First Name</option>
+      <option value="lastName">Sort by Last Name</option>
+      <option value="birthDate">Sort by Birth Date</option>
     </select>
   );
 };

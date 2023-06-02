@@ -18,7 +18,7 @@ import {
 import { debounce } from "lodash";
 import useDebounce from "../utils/useDebounce";
 import "./ContactList.scss";
-import { BsBookmarkStarFill, BsBookmarkStar } from 'react-icons/bs'
+import { BsBookmarkStarFill, BsBookmarkStar } from "react-icons/bs";
 
 const ContactList: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -78,8 +78,12 @@ const ContactList: React.FC = () => {
     <div className="contact-list">
       <div className="header-section">
         <div className="bookmark-controls">
-          <button onClick={handleBookmarkAll}><BsBookmarkStarFill /> Bookmark All </button>
-          <button onClick={handleUnbookmarkAll}><BsBookmarkStar /> Unbookmark All</button>
+          <button onClick={handleBookmarkAll}>
+            <BsBookmarkStarFill /> Bookmark All{" "}
+          </button>
+          <button onClick={handleUnbookmarkAll}>
+            <BsBookmarkStar /> Unbookmark All
+          </button>
         </div>
         <div className="list-and-controls">
           <h1 className="list-header">Antini kontakti</h1>
@@ -111,9 +115,17 @@ const ContactList: React.FC = () => {
             <p>Birthday: {contact.BirthDate ? contact.BirthDate : "N/A"}</p>
             <p>Account ID: {contact.Account ? contact.Account.Id : "N/A"}</p>
             {contact.isBookmarked ? (
-              <BsBookmarkStarFill className="bookmark-icon BsBookmarkStarFill"  title = "Remove from bookmarked list"onClick={() => handleBookmarkToggle(contact.Id)} />
+              <BsBookmarkStarFill
+                className="bookmark-icon BsBookmarkStarFill"
+                title="Remove from bookmarked list"
+                onClick={() => handleBookmarkToggle(contact.Id)}
+              />
             ) : (
-              <BsBookmarkStar className="bookmark-icon BsBookmarkStar" title = "Add to bookmarked list" onClick={() => handleBookmarkToggle(contact.Id)} />
+              <BsBookmarkStar
+                className="bookmark-icon BsBookmarkStar"
+                title="Add to bookmarked list"
+                onClick={() => handleBookmarkToggle(contact.Id)}
+              />
             )}
           </div>
         ))}

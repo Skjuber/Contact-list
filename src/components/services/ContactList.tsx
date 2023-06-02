@@ -64,11 +64,12 @@ const ContactList: React.FC = () => {
   }
 
   sortedContacts = sortedContacts.filter((contact) =>
-    `${contact.FirstName} ${contact.LastName}`
+    `${contact.FirstName ? contact.FirstName : "N/A"} ${
+      contact.LastName ? contact.LastName : "N/A"
+    }`
       .toLowerCase()
       .includes(debouncedSearchTerm.toLowerCase())
   );
-
   const debouncedHandleSearch = useCallback(debounce(setSearchTerm, 500), []);
 
   return (

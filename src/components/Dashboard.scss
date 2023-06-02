@@ -2,16 +2,14 @@
     display: flex;
     flex-direction: column;
     height: 100vh; // takes up the whole height of the view
-    
+  
     nav {
+      display: flex;
+      flex-direction: row; // this will make items inside nav display next to each other
+      justify-content: left; // align items to the left
       background: #f5f5f5;
       padding: 1em;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  
-      button {
-        margin-right: 1em;
-        // other button styles
-      }
     }
   
     main {
@@ -20,13 +18,19 @@
       overflow: auto; // so it can scroll if there's too much content
     }
   }
-  .home-link {
-    display: flex;
-  justify-content:flex-start;
-  text-decoration: none;
   
-    span {
-      display: block;
-      text-align:end;
-    }
+  .home-link {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 3em; // add space to the right of the home link
   }
+  
+  .bookmark-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    
+  }
+  

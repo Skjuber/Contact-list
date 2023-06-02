@@ -109,6 +109,10 @@
     font-size: x-large;
     color: #f72585;
   }
+  .BsBookmarkStarFill:hover,
+  .BsBookmarkStar:hover {
+    box-shadow: 0px 0px 20px rgba(0, 188, 212, 0.75); /* Cool box-shadow effect on hover */
+  }
 }
 
 .contact {

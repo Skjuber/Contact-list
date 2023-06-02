@@ -77,24 +77,30 @@ const ContactList: React.FC = () => {
 
   return (
     <div className="contact-list">
-      <div className="controls">
-      <button onClick={handleBookmarkAll}>Bookmark All</button>
-      <button onClick={handleUnbookmarkAll}>Unbookmark All</button>
-      <select
-        value={sortOption}
-        onChange={(e) => setSortOption(e.target.value)}
-      >
-        <option value="firstName">Sort by First Name</option>
-        <option value="lastName">Sort by Last Name</option>
-        <option value="birthDate">Sort by Birth Date</option>
-      </select>
-      <input
-        type="text"
-        placeholder="Search contacts..."
-        onChange={(e) => debouncedHandleSearch(e.target.value)}
-      />
+    <div className="header-section">
+      <div className="bookmark-controls">
+        <button onClick={handleBookmarkAll}>Bookmark All</button>
+        <button onClick={handleUnbookmarkAll}>Unbookmark All</button>
       </div>
-      <h1 className="list-header">Contact list</h1>
+      <div className="list-and-controls">
+        <h1 className="list-header">Contact list</h1>
+        <div className="controls">
+          <select
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+          >
+            <option value="firstName">Sort by First Name</option>
+            <option value="lastName">Sort by Last Name</option>
+            <option value="birthDate">Sort by Birth Date</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Search contacts..."
+            onChange={(e) => debouncedHandleSearch(e.target.value)}
+          />
+        </div>
+      </div>
+    </div>
       {sortedContacts &&
         sortedContacts.map((contact: Contact, index: number) => (
           <div className="contact" key={`${contact.Id}-${index}`}>

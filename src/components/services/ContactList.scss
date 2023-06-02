@@ -18,9 +18,9 @@
       button {
         border: #f72585 solid;
         border-radius: 50px;
-        font-size: large;
+        font-size:21px;
         cursor: pointer;
-        color:#f72585  ;
+        color:#f72585;
         background: linear-gradient(
           145deg,
           #f50057,
@@ -68,6 +68,7 @@
         flex-direction: row;
         justify-content:flex-end;
         align-items: center;
+        margin-bottom: 10px;
         gap: 10px;
 
         select,
@@ -104,6 +105,13 @@
       }
     }
   }
+  .BsBookmarkStarFill, .BsBookmarkStar {
+    cursor: pointer;
+    font-size:x-large;
+    color:#f72585
+  }
+}
+
 
   .contact {
     border-bottom: 1px solid black;
@@ -121,4 +129,3 @@
     }
   }
 
-}

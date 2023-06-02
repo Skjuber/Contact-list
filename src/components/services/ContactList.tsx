@@ -86,7 +86,7 @@ const ContactList: React.FC = () => {
           </button>
         </div>
         <div className="list-and-controls">
-          <h1 className="list-header">Antini kontakti</h1>
+          <h1 className="list-header">Contact list</h1>
           <div className="controls">
             <select
               value={sortOption}

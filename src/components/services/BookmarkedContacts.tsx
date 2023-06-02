@@ -13,6 +13,7 @@ import {
   sortByBirthDate,
 } from "../utils/SortingFunctions";
 import "./BookmarkedContacts.scss";
+import { BsArrowReturnLeft } from 'react-icons/bs'; 
 
 const BookmarkedContacts: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -57,7 +58,7 @@ const BookmarkedContacts: React.FC = () => {
 
   return (
     <div className="bookmarked-contact-list">
-      <Link to="/">Return Home</Link>
+      <Link to="/">Return Home   <BsArrowReturnLeft /> </Link>
       <div className="header-section">
         <div className="list-and-controls">
           <h2 className="list-header">Bookmarked Contacts</h2>

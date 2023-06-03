@@ -78,3 +78,10 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .header-section .list-and-controls {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+}

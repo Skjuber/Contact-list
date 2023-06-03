@@ -125,3 +125,55 @@
     }
   }
 }
+
+@media (max-width: 640px) {
+  .contact-list {
+    padding: 10px;
+
+    .header-section {
+      margin-bottom: 10px;
+
+      .bookmark-controls {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 5px;
+
+        button {
+          font-size: 18px;
+        }
+      }
+
+      .list-and-controls {
+        flex-direction: column;
+
+        .list-header {
+          margin-right: 0;
+          text-align: center;
+        }
+
+        .controls {
+          flex-direction: column;
+          gap: 5px;
+
+          select,
+          input[type="text"] {
+            padding: 5px 10px;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+
+    .contact {
+      h2 {
+        font-size: 1.2em;
+      }
+
+      p {
+        font-size: 1em;
+        margin: 2px 0;
+      }
+    }
+  }
+}

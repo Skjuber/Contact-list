@@ -1,10 +1,11 @@
 @import "../utils/mixins/mixins";
 
 .bookmarked-contact-list {
+  border: #d3d3d3 solid;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background-color: #e0f7fa;
+  background-color: #ccfaf2;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -30,7 +31,8 @@
     }
 
     .sorting-component {
-      background-color: #00bcd4;
+      background-color: #ff52ad;
+
       border-radius: 50px;
       padding: 10px;
       display: flex;
@@ -41,7 +43,7 @@
       .sort-select {
         background-color: transparent;
         border: none;
-        color: #f72585;
+        color: black;
         font-size: 1em;
         padding: 5px;
         outline: none;
@@ -54,7 +56,7 @@
     padding: 10px;
     margin: 10px 0;
     border-radius: 10px;
-    background-color: white;
+    background-color: #f5e5e5;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
     h3 {

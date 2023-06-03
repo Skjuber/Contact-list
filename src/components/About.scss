@@ -1,7 +1,7 @@
 .about-page {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; // aligns the content to the left horizontally
+  align-items: flex-start;
   background-color: #e0f7fa;
   padding: 20px;
   width: 30%;
@@ -16,7 +16,7 @@
 
   .about-content {
     max-width: 500px;
-    text-align: left; // aligns the text to the left inside the div
+    text-align: left;
   }
 
   p {
@@ -26,6 +26,6 @@
   }
 
   @media (max-width: 600px) {
-    width: 15%;
+    width: 25%;
   }
 }

@@ -1,3 +1,4 @@
+@import "../utils/mixins/mixins";
 .contact-list {
   display: flex;
   flex-direction: column;
@@ -95,30 +96,21 @@
       }
     }
   }
-  .BsBookmarkStarFill,
-  .BsBookmarkStar {
-    cursor: pointer;
-    font-size: x-large;
-    color: #f72585;
-  }
-  .BsBookmarkStarFill:hover,
-  .BsBookmarkStar:hover {
-    box-shadow: 0px 0px 20px rgba(0, 188, 212, 0.75);
-  }
-}
+  @include bookmark-star;
 
-.contact {
-  border-bottom: 1px solid black;
+  .contact {
+    border-bottom: 1px solid black;
 
-  h2 {
-    margin-top: 0;
-  }
+    h2 {
+      margin-top: 0;
+    }
 
-  p {
-    margin: 5px 0;
-  }
+    p {
+      margin: 5px 0;
+    }
 
-  &:last-child {
-    border-bottom: none;
+    &:last-child {
+      border-bottom: none;
+    }
   }
 }

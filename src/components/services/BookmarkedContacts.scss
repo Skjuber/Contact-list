@@ -1,3 +1,5 @@
+@import "../utils/mixins/mixins";
+
 .bookmarked-contact-list {
   display: flex;
   flex-direction: column;
@@ -46,6 +48,7 @@
       }
     }
   }
+  @include bookmark-star;
 
   .contact {
     padding: 10px;

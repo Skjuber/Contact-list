@@ -13,7 +13,8 @@ import {
   sortByBirthDate,
 } from "../utils/SortingFunctions";
 import "./BookmarkedContacts.scss";
-import { BsArrowReturnLeft } from 'react-icons/bs'; 
+import { BsArrowReturnLeft } from "react-icons/bs";
+import { BsBookmarkStarFill } from "react-icons/bs";
 
 const BookmarkedContacts: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -58,7 +59,9 @@ const BookmarkedContacts: React.FC = () => {
 
   return (
     <div className="bookmarked-contact-list">
-      <Link to="/">Return Home   <BsArrowReturnLeft /> </Link>
+      <Link to="/">
+        Return Home <BsArrowReturnLeft />{" "}
+      </Link>
       <div className="header-section">
         <div className="list-and-controls">
           <h2 className="list-header">Bookmarked Contacts</h2>
@@ -73,10 +76,10 @@ const BookmarkedContacts: React.FC = () => {
               {index + 1}. {contact.FirstName} {contact.LastName}
             </h3>
             <p>Email: {contact.Email}</p>
-            <input
-              type="checkbox"
-              checked={contact.isBookmarked}
-              onChange={() => handleBookmarkToggle(contact.Id)}
+            <BsBookmarkStarFill
+              className="bookmark-icon BsBookmarkStarFill"
+              title="Remove from bookmarked list"
+              onClick={() => handleBookmarkToggle(contact.Id)}
             />
             Remove Bookmark
           </div>

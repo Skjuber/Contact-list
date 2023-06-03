@@ -114,3 +114,14 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .contact-list .header-section .list-and-controls {
+    grid-template-columns: 1fr;
+
+    .list-header,
+    .controls {
+      text-align: center;
+    }
+  }
+}
